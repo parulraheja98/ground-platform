@@ -1,0 +1,13 @@
+<div *ngFor="let option of options; let i = index">
+  <button (click)="testing($event)"> Testing </button>
+    <app-multiple-choice-option
+    [code]="option.code"
+    [label]="option.label.get('en')"
+    [index]="i"
+    (update)="onOptionUpdate($event)"
+  >
+  </app-multiple-choice-option>
+  <a class="add-option" (click)="addOption()">
+    Add option
+  </a>
+</div>

@@ -72,6 +72,7 @@ export class LayerDialogComponent implements OnDestroy {
   subscription: Subscription = new Subscription();
   layerForm: FormGroup;
   fieldTypes = FieldType;
+  options?: List<Option>;
   fieldTypeOptions: FieldTypeOptionModel[] = [
     {
       icon: 'short_text',
@@ -233,6 +234,7 @@ export class LayerDialogComponent implements OnDestroy {
   }
 
   onSave() {
+    debugger;
     // TODO: Wait for project to load before showing dialog.
     if (!this.projectId) {
       throw Error('Project not yet loaded');
@@ -277,6 +279,13 @@ export class LayerDialogComponent implements OnDestroy {
   setLayerName(value: string) {
     this.layerName = value;
   }
+
+  setOptions(event: List<Option>, index: number) {
+    console.log(`checking val here ${event}, ${index}`);
+    console.log(event);
+    this.options = event;
+  }
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
